@@ -26,23 +26,68 @@ warmStrategyCache({
 
 registerRoute(({ request }) => request.mode === 'navigate', pageCache);
 
+
+// TODO: Implement asset caching
+
 registerRoute(
-  ({ request }) => request.destination === 'style' ||
-                  request.destination === 'script' ||
-                  request.destination === 'image',
+  ({ request }) => request.destination === 'style',
   new CacheFirst({
-    cacheName: 'assets-cache',
+    cacheName: 'styles-cache',
     plugins: [
       new CacheableResponsePlugin({
-        statuses: [0, 200],
+        statuses: [0,  200],
       }),
       new ExpirationPlugin({
-        maxAgeSeconds: 30 * 24 * 60 * 60,
+        maxAgeSeconds:  30 *  24 *  60 *  60, //  30 days
       }),
     ],
   })
 );
 
+// Cache scripts
+registerRoute(
+  ({ request }) => request.destination === 'script',
+  new CacheFirst({
+    cacheName: 'scripts-cache',
+    plugins: [
+      new CacheableResponsePlugin({
+        statuses: [0,  200],
+      }),
+      new ExpirationPlugin({
+        maxAgeSeconds:  30 *  24 *  60 *  60, //  30 days
+      }),
+    ],
+  })
+);
 
-// TODO: Implement asset caching
-registerRoute();
+// Cache images
+registerRoute(
+  ({ request }) => request.destination === 'image',
+  new CacheFirst({
+    cacheName: 'images-cache',
+    plugins: [
+      new CacheableResponsePlugin({
+        statuses: [0,  200],
+      }),
+      new ExpirationPlugin({
+        maxAgeSeconds:  30 *  24 *  60 *  60, //  30 days
+      }),
+    ],
+  })
+);
+
+// Cache fonts
+registerRoute(
+  ({ request }) => request.destination === 'font',
+  new CacheFirst({
+    cacheName: 'fonts-cache',
+    plugins: [
+      new CacheableResponsePlugin({
+        statuses: [0,  200],
+      }),
+      new ExpirationPlugin({
+        maxAgeSeconds:  30 *  24 *  60 *  60, //  30 days
+      }),
+    ],
+  })
+);
