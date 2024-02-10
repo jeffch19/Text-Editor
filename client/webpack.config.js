@@ -32,18 +32,25 @@ module.exports = () => {
         maximumFileSizeToCacheInBytes:  5 *  1024 *  1024, 
       }),
       new WebpackPwaManifest({
+        fingerprints: false,
+        inject: true,
         name: 'My App',
         short_name: 'App',
         description: 'My awesome Progressive Web App!',
-        crossorigin: 'null', 
+        background_color: '#225ca3', 
+        theme_color: '#225ca3', 
+        start_url: './',
+        publicPath: './',
         icons: [
           {
             src: path.resolve('src/assets/icon.png'),
-            sizes: [96,  128,  192,  256,  384,  512] 
+            sizes: [96,  128,  192,  256,  384,  512],
+            destination: path.join('assets', 'icons'),
           },
           {
             src: path.resolve('src/assets/large-icon.png'),
-            size: '1024x1024' 
+            size: '1024x1024',
+            destination: path.join('assets', 'icons'),
           }
         ]
       })
