@@ -10,7 +10,7 @@ window.addEventListener('beforeinstallprompt', (event) => {
 //done
 // TODO: Implement a click event handler on the `butInstall` element
 butInstall.addEventListener('click', async () => {
-  butInstall.classList.add('hidden'); // Hide the install button
+  butInstall.classList.add('hidden'); 
   window.deferredPrompt.prompt();
   const { outcome } = await window.deferredPrompt.userChoice;
   if (outcome === 'accepted') {
@@ -18,7 +18,7 @@ butInstall.addEventListener('click', async () => {
   } else {
     console.log('User dismissed the A2HS prompt');
   }
-  window.deferredPrompt = null; // Reset the deferred prompt
+  window.deferredPrompt = null; 
 });
 //done
 // TODO: Add an handler for the `appinstalled` event
