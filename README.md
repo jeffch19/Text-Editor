@@ -2,22 +2,17 @@
 
 ## Description
 
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
+This Text-Editor is a single-page application that meets the PWA criteria. Additionally, it will feature a number of data persistence techniques that serve as redundancy in case one of the options is not supported by the browser. The application will also function offline.
 
-- What was your motivation?
-- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-- What problem does it solve?
-- What did you learn?
+The Text Editor also stores data to an IndexedDB database using a package called idb, which is a lightweight wrapper around the IndexedDB API. It features a number of methods that are useful for storing and retrieving data.
 
 ## Installation
 
-Deployed Link: 
+Deployed Link: https://text-editor-5u8z.onrender.com 
 
-* in the terminal run npm i in the root 
+* in the terminal run npm install in the root 
 
-* then run npm run build (check for dist file) 
-
-* npm run start:dev 
+* then run npm run start 
 
 
 ## Usage
